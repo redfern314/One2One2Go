@@ -1,6 +1,6 @@
 [autorun]
 shell\openfile=Backup files using Dropbox
-shell\openfile\command=DropboxPortableAHK.exe
+shell\openfile\command=ProgramFiles/DropboxPortableAHK.exe
 action=Run Dropbox
 icon="ProgramFiles/Etoys-To-Go 4.1.1.app/Etoys.exe"
 label=1212go Stick
