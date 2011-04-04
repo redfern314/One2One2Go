@@ -1,0 +1,68 @@
+#! /bin/bash
+
+# File:        npetoysrun (Etoys-To-Go version)
+# Author:      Bert Freudenberg
+# Last edited: 2010-05-13 22:36:12 by bert
+# Description: Script to start Etoys-To-Go
+#              from the Browser Plugin (npetoys.so)
+
+realpath () {
+    path="$1"
+    while test -L "${path}"; do
+        dir=`dirname "${path}"`
+        dir=`cd "${dir}" && pwd -P`
+        path=`basename "${path}"`
+        path=`ls -l "${dir}/${path}" | sed 's,.* -> ,,'`
+    done
+    if test -d "${path}"; then
+        (cd "${path}" && pwd -P)
+    else
+        dir=`dirname "${path}"`
+        base=`basename "${path}"`
+        (cd "${dir}" && echo "`pwd -P`/${base}")
+    fi
+}
+
+# need real path in case we got here via symlink
+THIS=`realpath "$0"`
+BIN=`dirname "$THIS"`
+CONTENTS=`dirname "$BIN"`
+APP=`dirname "$CONTENTS"`
+TOP=`dirname "$APP"`
+VM="$BIN/etoys"
+VMOPTIONS="-encoding UTF-8 -vm-display-x11 "
+IMAGE="$CONTENTS/Resources/etoys.image"
+IMOPTIONS=""
+DOCUMENT=""
+WRAPPER=""
+
+export SQUEAK_SECUREDIR="$TOP/.etoys"
+export SQUEAK_USERDIR="$TOP/Etoys"
+
+[ ! -d "$SQUEAK_SECUREDIR" ] && mkdir -p -m 700 "$SQUEAK_SECUREDIR"
+[ ! -d "$SQUEAK_USERDIR" ] && mkdir -p "$SQUEAK_USERDIR"
+
+# is there a clever way to determine if you are local?
+if [ $DISPLAY = ":0.0" ]; then
+    VMOPTIONS="$VMOPTIONS -xshm"
+fi
+
+# if pulseaudio is running, fall back to OSS
+if pulseaudio --check 2>/dev/null ; then
+    VMOPTIONS="$VMOPTIONS -vm-sound-oss"
+    if padsp true 2>/dev/null ; then
+        WRAPPER=padsp
+    fi
+fi
+
+parameter_to_array(){
+    i=0
+    for p in "$@"; do
+	i=$(( $i + 1 ))
+	parameter[i]=$p
+    done
+}
+
+parameter_to_array "$@"
+parameter[6]="$IMAGE"
+$WRAPPER "$VM" -plugins "$BIN" $VMOPTIONS "${parameter[@]}"
