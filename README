@@ -1,0 +1,24 @@
+One2One2Go USB Drive Image
+Version 1.0
+Last updated: 4/4/11
+
+ABOUT:
+This image was created for educational use in Somerville, MA. It includes Etoys, an interactive program primarily used to teach kids to write computer scripts, and a mobile version of Dropbox, an automatic backup application. Both of these are freeware downloads, and questions specifically about them should be directed to their respective websites.
+The included Java applications were written by Derek Redfern.
+
+INSTALLATION:
+1. Copy all files in the directory labelled "USB Image" to a fresh USB stick. Make sure you copy them to the root of the drive for ease of use.
+2. If you're running Windows, go to the next step. If not, Dropbox is not compatible with your system, so skip to "Use".
+3. Run Setup.jar to set up your Dropbox account. Update the program if prompted.
+4. A large config screen will appear. My recommendation is to change the folder to ".\Etoys" (the default is ".\Dropbox") and leave the other settings alone.
+5. Go through the Dropbox setup and either login with your existing account or create a new one.
+6. Setup should be complete and Dropbox should sync with the cloud.
+
+USE:
+Double-clicking on the Etoys.jar icon will execute Etoys on Linux, Windows, and Mac, and will additionally start Dropbox on Windows.
+
+CONTACT:
+The drive image comes without any guarantee of support, but the community at http://groups.google.com/group/one2one2go---somerville-ma will do its best to answer your questions.
+
+LICENSING:
+This software is available for free download at https://github.com/redfern314/One2One2Go. The package is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License - that means that you're free to copy, share, and modify it, as long as you don't use it for commercial reasons and include a similar license in your version.
