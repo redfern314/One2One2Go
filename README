@@ -1,5 +1,5 @@
 One2One2Go USB Drive Image
-Version 1.0
+Version 1.1
 Last updated: 4/4/11
 
 ABOUT:
@@ -7,7 +7,7 @@ This image was created for educational use in Somerville, MA. It includes Etoys,
 The included Java applications were written by Derek Redfern.
 
 INSTALLATION:
-1. Copy all files in the directory labelled "USB Image" to a fresh USB stick. Make sure you copy them to the root of the drive for ease of use.
+1. Copy all files to a fresh USB stick. (Omit this readme.) Make sure you copy them to the root of the drive for ease of use.
 2. If you're running Windows, go to the next step. If not, Dropbox is not compatible with your system, so skip to "Use".
 3. Run Setup.jar to set up your Dropbox account. Update the program if prompted. (NOTE: Setup.jar is hidden by default. If you don't know how to view hidden files, execute Etoys.jar instead. It'll still bring up the installation screen.)
 4. A large config screen will appear. My recommendation is to change the folder to ".\Etoys" (the default is ".\Dropbox") and leave the other settings alone.
