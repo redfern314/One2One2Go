@@ -1,0 +1,36 @@
+#! /bin/sh
+
+# File:        npetoysregister (Etoys-To-Go version)
+# Author:      Bert Freudenberg 
+# Description: Script to register the npetoys plugin with 
+#              the web browser
+
+realpath () {
+    path="$1"
+    while test -L "${path}"; do
+        dir=`dirname "${path}"`
+        dir=`cd "${dir}" && pwd -P`
+        path=`basename "${path}"`
+        path=`ls -l "${dir}/${path}" | sed 's,.* -> ,,'`
+    done
+    if test -d "${path}"; then
+        (cd "${path}" && pwd -P)
+    else
+        dir=`dirname "${path}"`
+        base=`basename "${path}"`
+        (cd "${dir}" && echo "`pwd -P`/${base}")
+    fi
+}
+
+# need real path in case we got here via symlink
+THIS=`realpath "$0"`
+THISDIR=`dirname "$THIS"`
+NPSQUEAK="$HOME/.npsqueak"
+MOZILLAPLUGINS="$HOME/.mozilla/plugins"
+
+[ -d "$NPSQUEAK" ] || mkdir -p "$NPSQUEAK"
+[ -d "$MOZILLAPLUGINS" ] || mkdir -p "$MOZILLAPLUGINS"
+
+ln -sfv "$THISDIR/npetoys.so" "$MOZILLAPLUGINS"/
+ln -sfv "$THISDIR/npetoysrun" "$NPSQUEAK"/
+
