@@ -1,4 +1,4 @@
-DropboxPortableAHK.exe 1.1
+DropboxPortableAHK.exe 1.2.1
 by Nick (agathecur / against the current)
 
 
@@ -42,6 +42,29 @@ http://dropportable.ho.am/
 -------------------Changelog------------------
 		~ : changed 					+ : added
 		- : removed 					# : fixed
+***********************************************************
+1.2.1.0 (16.04.2011):
+	~methods for moving / copying folders
+	#moving of dropbox folder after installation
+	+fallback method for very restricted user accounts
+	+new config.ini value "fallback_dontask"
+	+distinction between XP / Vista,7 while searching for dropbox folder
+	+check for internet connection on startup
+***********************************************************
+1.2.0.0 (12.04.2011):
+	-vbscript file
+	+code cleanup
+	~compiler
+	+support of special characters (like è) in filepath
+	+keeping of 3 debug logs
+	+timeout (10s) for update notifications
+	+option to unzip dropbox files manually if automatic mathod failed
+	#recognition of dropbox startup
+	+7zip as unzipping method (http://www.7-zip.org/)
+***********************************************************
+1.1.1.0 (05.04.2011):
+	+temporary vbscript file back, if unzipping failed
+	#version comparison
 ***********************************************************
 1.1.0.0 (03.04.2011):
 	-unused libraries
