@@ -17,8 +17,6 @@ IMOPTIONS=""
 DOCUMENT=""
 WRAPPER=""
 
-zenity --info --text 'Script is executing.'
-
 export SQUEAK_SECUREDIR="$TOP/.etoys"
 export SQUEAK_USERDIR="$TOP/Etoys"
 
